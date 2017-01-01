@@ -34,11 +34,6 @@ public class KnightsTour {
     *   Base case 2: Knight has reached a dead end, no valid moves, yet not completed tour
     *       Go back and try a different move
     *
-    *    The knight moves 1 of either 4 ways:
-    *      2 up 1 left
-    *      2 up 1 right
-    *      2 down 1 left
-    *      2 down 1 right
     */
     public void tour(int row, int col, int moveNum, Board board){
         // Check if valid move
