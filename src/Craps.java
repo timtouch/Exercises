@@ -22,6 +22,7 @@ public class Craps {
             while (!validInput) {
                 System.out.println("How much will you bet?");
                 bet = input.nextInt();
+                input.nextLine();
                 if (bet > player.getBalance()) {
                     System.out.println("You do not have that much money, your balance is: $" + player.getBalance());
                     validInput = false;
@@ -31,6 +32,8 @@ public class Craps {
                     validInput = true;
                 }
             }
+            validInput = false;
+            
             // The main game logic
             result = dices.roll();
             System.out.println("You rolled " + result);
@@ -63,13 +66,11 @@ public class Craps {
             }
 
             System.out.println("Your current balance is now: $" + player.getBalance());
-            System.out.println("Do you want to bet again? (Y/N)");
-            inputEndGame = input.nextLine().toUpperCase();
-            while ( !inputEndGame.equals("Y") || !inputEndGame.equals("N")){
+            do {
                 System.out.println("Do you want to bet again? (Y/N)");
                 inputEndGame = input.nextLine().toUpperCase();
-            }
-            if (inputEndGame.equals("Y")){
+            } while ( !inputEndGame.equals("Y") && !inputEndGame.equals("N"));
+            if (inputEndGame.equals("N")){
                 endGame = true;
                 System.out.println("Thanks for your money!");
             }
